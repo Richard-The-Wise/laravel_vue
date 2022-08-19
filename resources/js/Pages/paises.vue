@@ -2,7 +2,7 @@
 
     <form @submit.prevent="guardar()">
         <input placeholder="Introduce el País" type="text" v-model="input">
-        <button type="submit"> Guardar </button>
+        <button :disabled="input.length === 0" type="submit"> Guardar </button>
     </form>
 
 
@@ -24,17 +24,15 @@
 
         methods:{ // Usados para modificar información y guardar los cambios.
             guardar() {
-                this.pais = {id:(this.pais.id+1), nombre:this.input};
-                this.input = '';
-                axios.default.post('/paises/create', this.pais).then(
+                axios.post('/paises/create', { nombre: this.input }).then(
                     response => {
                         console.log(response)
+                        this.input = ''
                     }
                 ). catch(error => {
                     console.log('Error');
                 });
 
-                console.log(this.pais)
 
             }
         },

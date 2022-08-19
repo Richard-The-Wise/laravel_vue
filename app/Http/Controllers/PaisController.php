@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pais;
 use Illuminate\Http\Request;
+use App\Http\Requests\PaisesRequest;
 
 class PaisController extends Controller
 {
@@ -35,14 +36,22 @@ class PaisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) //Que tipo de resquest usar?
+    public function store(PaisesRequest $request) //Que tipo de request usar?
     {
-       $data = $request->all();
-       $response = Pais::create($data);
-       return response()->json([
-           'status' => 'success',
-           'data' => $response
-       ],200);
+        try {
+            $pais = Pais::create($request->validated());
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $pais
+            ]);
+        }
+        catch (\Exception $e) {
+            return response()->json([
+                'status' => false
+            ]);
+        }
+
     }
 
     /**
