@@ -14,8 +14,8 @@ use App\Http\Controllers\PaisController;
 |
 */
 Route::get('paises',[\App\Http\Controllers\PaisController::class,'index']);
-Route::post('/paises/create',[\App\Http\Controllers\PaisController::class,'store']);
 Route::get('estados',[\App\Http\Controllers\EstadoController::class,'index']);
+
 Route::get('/', function () {
     return view('welcome');
 
