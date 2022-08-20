@@ -32,7 +32,10 @@ Route::group([
     Route::get('paises', function (){
     return \Inertia\Inertia::render('paises');
     });
-    Route::get('estados', function (){
+    Route::get('estados_list', function (){
+    return \Inertia\Inertia::render('estados_list');
+
+    });Route::get('estados', function (){
     return \Inertia\Inertia::render('estados');
     });
     Route::get('municipios', function (){

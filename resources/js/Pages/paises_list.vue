@@ -2,52 +2,64 @@
 
    <div>
        <button
-           @click="saveItem"
            class="btn btn-primary">
-           Nuevo País
+           <a class="white" href="paises">Nuevo País</a>
        </button>
    </div>
 
     <div>
-        <li v-for="pais in paises">
-        {{pais.nombre}} asdf
-        </li>
-        adsfa
-
+<!--        <li v-for="pais in paises">-->
+<!--        {{pais.nombre}} asdf-->
+<!--        </li>-->
     </div>
+    <el-table
+        :data="tableData"
+        border
+        style="width: 100%">
+        <el-table-column
+            prop="id"
+            label="ID"
+            width="180">
+        </el-table-column>
+        <el-table-column
+            prop="nombre"
+            label="Nombre"
+            width="720">
+        </el-table-column>
+    </el-table>
 
 
 </template>
 
 <script type="text/javascript">
     export default {
-        props: {
+        data() {
+            return {
+                tableData: [{
+                    id: '',
+                    nombre:'',
 
+                }]
+            }
         },
-        data: () => ({
-            paises: [],
-
-        }),
-
         methods:{ // Usados para modificar información y guardar los cambios.
 
-        },
-        computed:{ //Usados para modificar solo la información para la vista
+            show() {
+                axios.get('/paises/show').then(
+                response => this.paises = response.data);
+
+                dd(response.data)
 
 
+            }
         },
-        created() {
-            axios.get('./api/pais')
-                .then(response => this.paises = response.data);
-        },
-        mounted() {
-
-        }
-    };
+    }
 
 </script>
 
 
 <style>
-
+.white{
+    color: white;
+}
 </style>

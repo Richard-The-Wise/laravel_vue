@@ -1,9 +1,19 @@
 <template xmlns="http://www.w3.org/1999/html">
 
+    <h1>Registro de Paises</h1>
     <form @submit.prevent="guardar()">
         <input placeholder="Introduce el País" type="text" v-model="input">
-        <button :disabled="input.length === 0" type="submit"> Guardar </button>
+        <button class="green white" :disabled="input.length === 0" type="submit">Guardar</button>
     </form>
+
+    <div>
+        <button  class ="cancel">
+            <a href="paises_list" class="white" >
+                Cancelar
+            </a>
+        </button>
+    </div>
+
 
 
 </template>
@@ -33,7 +43,6 @@
                     console.log('Error');
                 });
 
-
             }
         },
         computed:{ //Usados para modificar solo la información para la vista
@@ -52,5 +61,16 @@
 
 
 <style>
+.cancel{
+    background: red;
+}
+
+.white{
+    color:white;
+}
+
+.green{
+    background: green;
+}
 
 </style>

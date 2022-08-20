@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pais;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Requests\PaisesRequest;
 
@@ -18,6 +19,8 @@ class PaisController extends Controller
 //        return Pais::all();
         $paises = Pais::all();
         return response()->json($paises);
+        dd($paises);
+
     }
 
     /**

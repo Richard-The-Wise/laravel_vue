@@ -5,7 +5,7 @@
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-map"></i> Ubicaciones</a>
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('paises_list') }}'><i class='nav-icon la la-hand-pointer'></i> Paises</a></li>
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('estados') }}'><i class='nav-icon la la-hand-pointer'></i> Estados</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('estados_list') }}'><i class='nav-icon la la-hand-pointer'></i> Estados</a></li>
         <li class='nav-item'><a class='nav-link' href='{{ backpack_url('municipios') }}'><i class='nav-icon la la-hand-pointer'></i> Municipios</a></li>
     </ul>
 </li>
@@ -18,4 +18,3 @@
     </ul>
 </li>
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('paises') }}'><i class='nav-icon la la-question'></i> Paises</a></li>

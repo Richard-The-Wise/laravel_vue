@@ -13,9 +13,13 @@ use App\Http\Controllers\PaisController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('paises',[\App\Http\Controllers\PaisController::class,'index']);
+//Route::get('paises_list',[\App\Http\Controllers\PaisController::class,'index']);
+Route::get('/paises/show',[\App\Http\Controllers\PaisController::class,'index']);
 Route::post('/paises/create',[\App\Http\Controllers\PaisController::class,'store']);
-Route::get('estados',[\App\Http\Controllers\EstadoController::class,'index']);
+Route::post('/clientes/create',[\App\Http\Controllers\ClienteController::class,'store']);
+Route::get('estados/show',[\App\Http\Controllers\EstadoController::class,'index']);
+
+
 Route::get('/', function () {
     return view('welcome');
 

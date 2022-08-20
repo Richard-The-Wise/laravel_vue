@@ -37,7 +37,7 @@
         <ul>
             <li v-for="item in items"
                 @click="togglePurchased(item)"
-                :class="{tachado:purchased}"
+                :class="{'prioritary' : item.newItemHighPriority}"
             >
                 {{item.label}}
 <!--                <i v-else>{{item.label}}</i>-->
@@ -105,7 +105,7 @@
 
 
 <style>
-.tachado{
-    font-weight: bold;
+.prioritary{
+    font-style: italic;
 }
 </style>

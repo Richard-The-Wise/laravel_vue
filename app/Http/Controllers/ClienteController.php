@@ -24,7 +24,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +35,19 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $cliente = Cliente::create($request->validated());
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $cliente
+            ]);
+        }
+        catch (\Exception $e) {
+            return response()->json([
+                'status' => false
+            ]);
+        }
     }
 
     /**
